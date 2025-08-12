@@ -33,8 +33,8 @@
         name(dispersion_pe0, replace)
         ;
 
-*        graph export  ..\..\text\figures\dispersion_pe0.eps, replace;
-*        graph export  ..\..\text\figures\dispersion_pe0.jpg, replace;
+        graph export  ..\..\text\figures\dispersion_pe0.eps, replace;
+        graph export  ..\..\text\figures\dispersion_pe0.jpg, replace;
 
     twoway
     (scatter peso estatura if genero_num == 0)
@@ -43,8 +43,8 @@
         name(dispersion_pe1, replace)
         ;
 
-*        graph export  ..\..\text\figures\dispersion_pe1.eps, replace;
-*        graph export  ..\..\text\figures\dispersion_pe1.jpg, replace;
+        graph export  ..\..\text\figures\dispersion_pe1.eps, replace;
+        graph export  ..\..\text\figures\dispersion_pe1.jpg, replace;
 
     twoway
     (scatter peso estatura if genero_num == 0, msymbol(Oh) mcolor(ltblue))
