@@ -39,6 +39,7 @@
     generate y = .;
     replace y = e1 in 1;
     replace y = `b0' + `b1' * l.y + `b2' * time + e1 in 2/l;
+        label var y "Y";
     
     drop in 1/30;
 
@@ -60,8 +61,10 @@
 
     reg y time;
         predict y_trend, xb;
+            label var y_trend "Y (Tendencia)";
         predict y_notrend, residuals;
-
+            label var y_notrend "Y (Sin tendencia)";
+        
     tsline y y_trend
         ,
         lcolor(ltblue black)
@@ -87,6 +90,7 @@
         ;
 
     tssmooth dexponential y_ewma08 = y_notrend, parms(.2);
+        label var y_ewma08 "Y (Suavizada)";
 
     tsline y_notrend y_ewma08
         ,
@@ -101,6 +105,7 @@
         ;
 
     gen y_notrend_nocicle = y_notrend - y_ewma08;
+        label var y_notrend_nocicle "Y (Sin tendencia y suavizada)";
 
     tsline y_notrend_nocicle
         ,
@@ -173,7 +178,7 @@
         ,
         cols(1)
         ysize(10)
-        xsize(8)
+        xsize(5)
         title(Serie de tiempo)
         subtitle("Descomposición")
         iscale(*.9)
